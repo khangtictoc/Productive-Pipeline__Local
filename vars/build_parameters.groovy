@@ -1,4 +1,4 @@
-def build_parameter(){
+def call(){
     properties([
         parameters([
             [
