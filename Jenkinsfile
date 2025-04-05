@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Load parameter') {
             steps {
-                
+                build_parameters()
             }
         }
         stage('Approve Execute') {
