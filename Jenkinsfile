@@ -1,12 +1,13 @@
 @Library("general-shared-lib@main") _
 
-build_parameters()
+
 
 pipeline {
     agent any
     stages {
         stage('Load parameter') {
             steps {
+                build_parameters()
                 echo "${params.cpu_report}"
                 echo "${params.memory_report}"
                 echo "${params.disk_report}"
