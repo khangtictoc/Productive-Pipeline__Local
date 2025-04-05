@@ -7,10 +7,10 @@ pipeline {
     stages {
         stage('Load parameter') {
             steps {
-                echo ${params.cpu_report}
-                echo ${params.memory_report}
-                echo ${params.disk_report}
-                echo ${params.network_report}
+                echo "${params.cpu_report}"
+                echo "${params.memory_report}"
+                echo "${params.disk_report}"
+                echo "${params.network_report}"
             }
         }
         stage('Approve Execute') {
