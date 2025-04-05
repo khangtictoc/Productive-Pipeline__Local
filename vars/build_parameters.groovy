@@ -6,11 +6,14 @@ def call(){
                 choiceType: 'PT_RADIO',
                 name: 'cpu_report',
                 description: 'CPU Report',
-                groovyScript: [
-                    classpath: [],
-                    script: '''
-                        return [ 'Enable', 'Disable' ]
-                    '''
+                script: [
+                    $class: 'GroovyScript',
+                    script: [
+                        script:
+                            """
+                            return ['Enable', 'Disable']
+                            """
+                    ]
                 ]
             ],
             // [
