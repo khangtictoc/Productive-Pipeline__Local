@@ -20,15 +20,12 @@ pipeline {
         stage('Network Measuring') {
             steps {
                 script {
-                    if (powershell(script: 'Get-Command speedtest -ErrorAction SilentlyContinue', returnStatus: true) != 0) {
-                        powershell '''
-                        Invoke-WebRequest -Uri https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.ps1 -OutFile script.ps1
-                        .\\script.ps1
-                        Install-Package -Name speedtest -Force
-                        '''
-                    } else {
-                        echo "yes"
-                    }
+                    powershell(returnStatus: true, script:
+                        """
+                        Invoke-WebRequest -Uri https://raw.githubusercontent.com/khangtictoc/Productive-Pipeline__Local/refs/heads/main/powershell_script/speedtest.ps1 -OutFile speedtest.ps1
+                        . .\speedtest.ps1
+                        """
+                    )
                 }
             }
         }
