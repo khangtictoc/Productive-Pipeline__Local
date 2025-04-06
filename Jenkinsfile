@@ -19,8 +19,8 @@ pipeline {
         // }
         stage('Disk Benchmarking') {
             steps {
-                if (params.disk_report == 'Enable') {
-                    script {
+                script {
+                    if (params.disk_report == 'Enable') {
                         powershell(returnStatus: true, script:
                             """
                             if (!(Test-Path -Path '${reportPath}')) {
@@ -30,17 +30,18 @@ pipeline {
                             . ./crytstal_disk_info.ps1
                             """
                         )
-                    }
-                } else {
-                    echo "Disk Report is disabled"
+                    } 
+                    else {
+                        echo "Disk Report is disabled"
+                    }  
                 }
-                
             }
         }
         stage('Network Measuring') {
             steps {
-                if (params.network_report == 'Enable') {
-                    script {
+                
+                script {
+                    if (params.network_report == 'Enable') {
                         powershell(returnStatus: true, script:
                             """
                             if (!(Test-Path -Path '${reportPath}')) {
@@ -50,11 +51,11 @@ pipeline {
                             . ./speedtest.ps1 | Out-File -FilePath "${reportPath}/NetworkReport.txt" -Encoding utf8
                             """
                         )
+                    } 
+                    else {
+                        echo "Network Report is disabled"
                     }
-                } else {
-                    echo "Network Report is disabled"
                 }
-                
             }
         }
     }
