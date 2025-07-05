@@ -11,7 +11,7 @@ def call(){
                     script: [
                         script:
                             """
-                            return ['Enabled', 'Disabled']
+                            return ["Enabled", "Disabled"]
                             """
                     ]
                 ]
