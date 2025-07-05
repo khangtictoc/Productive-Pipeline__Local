@@ -4,7 +4,7 @@ def call(){
             [
                 $class: 'ChoiceParameter',
                 choiceType: 'PT_RADIO',
-                name: 'cpu_report',
+                name: 'azure_data_studio__install',
                 description: 'CPU Report',
                 script: [
                     $class: 'GroovyScript',
