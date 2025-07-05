@@ -1,0 +1,22 @@
+@Library("general-shared-lib@main") _
+
+def reportPath = "C:/Temp"
+
+pipeline {
+    agent any
+    stages {
+        stage('Load parameter') {
+            steps {
+                build_parameters__software_setup()
+            }
+        }
+        // stage('Approve Execute') {
+        //     steps {
+        //         script {
+        //             input message: 'Do you want to run the benchmark?', submitter: 'virus'
+        //         }
+        //     }
+        // }
+        
+    }
+}
