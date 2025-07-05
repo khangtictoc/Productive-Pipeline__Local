@@ -4,14 +4,14 @@ def call(){
             [
                 $class: 'ChoiceParameter',
                 choiceType: 'PT_RADIO',
-                name: 'azure_data_studio__install',
-                description: 'Azure Data Studio Installation',
+                name: 'cpu_report',
+                description: 'CPU Report',
                 script: [
                     $class: 'GroovyScript',
                     script: [
                         script:
                             """
-                            return ['Install', 'Skip']
+                            return ['Enable', 'Disable']
                             """
                     ]
                 ]
