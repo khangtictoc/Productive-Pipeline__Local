@@ -78,7 +78,7 @@ if (-not (Is-AppInstalled "CrystalDiskMark")) {
     Start-Process -FilePath $cdmInstaller -ArgumentList "/S" -Wait
     Remove-Item $cdmInstaller
 } else {
-    Write-Host "CrystalDiskMark is already installed. Skipping."
+    Write-Host "CrystalDiskMark is already installed. Skippingf."
 }
 
 Write-Host "All installations checked and completed."
