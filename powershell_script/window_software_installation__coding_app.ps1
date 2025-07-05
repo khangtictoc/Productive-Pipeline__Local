@@ -24,7 +24,7 @@ function Is-AppInstalled {
 # Install Azure Data Studio
 if (-not (Is-AppInstalled "Azure Data Studio")) {
     Write-Host "Installing Azure Data Studio..."
-    $adsUrl = "https://aka.ms/azuredatastudio-windows"
+    $adsUrl = "https://download.microsoft.com/download/6b2bfeac-9c1b-4182-9a2f-ce86ff8cc371/azuredatastudio-windows-setup-1.52.0.exe"
     $adsInstaller = "$env:TEMP\azuredatastudio.exe"
     Invoke-WebRequest $adsUrl -OutFile $adsInstaller
     Start-Process -FilePath $adsInstaller -ArgumentList "/silent" -Wait
@@ -36,7 +36,7 @@ if (-not (Is-AppInstalled "Azure Data Studio")) {
 # Install Calibre
 if (-not (Is-AppInstalled "calibre")) {
     Write-Host "Installing Calibre..."
-    $calibreUrl = "https://download.calibre-ebook.com/7.12.0/calibre-64bit-7.12.0.msi"  # Change version if needed
+    $calibreUrl = "https://download.calibre-ebook.com/8.5.0/calibre-64bit-8.5.0.msi"  # Change version if needed
     $calibreInstaller = "$env:TEMP\calibre.msi"
     Invoke-WebRequest $calibreUrl -OutFile $calibreInstaller
     Start-Process "msiexec.exe" -ArgumentList "/i `"$calibreInstaller`" /qn" -Wait
@@ -60,7 +60,7 @@ if (-not (Is-AppInstalled "Cloudflare")) {
 # Install CrystalDiskInfo
 if (-not (Is-AppInstalled "CrystalDiskInfo")) {
     Write-Host "Installing CrystalDiskInfo..."
-    $cdiUrl = "https://osdn.net/projects/crystaldiskinfo/downloads/79546/CrystalDiskInfo8_17_14.exe"  # Update version if needed
+    $cdiUrl = "https://zenlayer.dl.sourceforge.net/project/crystaldiskinfo/9.7.0/CrystalDiskInfo9_7_0Ads.exe?viasf=1"  # Update version if needed
     $cdiInstaller = "$env:TEMP\CrystalDiskInfo.exe"
     Invoke-WebRequest $cdiUrl -OutFile $cdiInstaller
     Start-Process -FilePath $cdiInstaller -ArgumentList "/S" -Wait
@@ -72,13 +72,13 @@ if (-not (Is-AppInstalled "CrystalDiskInfo")) {
 # Install CrystalDiskMark
 if (-not (Is-AppInstalled "CrystalDiskMark")) {
     Write-Host "Installing CrystalDiskMark..."
-    $cdmUrl = "https://osdn.net/projects/crystaldiskmark/downloads/79560/CrystalDiskMark8_0_4.exe"  # Update version if needed
+    $cdmUrl = "https://zenlayer.dl.sourceforge.net/project/crystaldiskmark/9.0.1/CrystalDiskMark9_0_1Ads.exe?viasf=1"  # Update version if needed
     $cdmInstaller = "$env:TEMP\CrystalDiskMark.exe"
     Invoke-WebRequest $cdmUrl -OutFile $cdmInstaller
     Start-Process -FilePath $cdmInstaller -ArgumentList "/S" -Wait
     Remove-Item $cdmInstaller
 } else {
-    Write-Host "CrystalDiskMark is already installed. Skippingf."
+    Write-Host "CrystalDiskMark is already installed. Skipping."
 }
 
 Write-Host "All installations checked and completed."
