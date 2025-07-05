@@ -11,7 +11,7 @@ def call(){
                     script: [
                         script:
                             """
-                            return ['Install', 'Skip']
+                            return ['Enable', 'Disable']
                             """
                     ]
                 ]
