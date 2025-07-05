@@ -5,7 +5,7 @@ def reportPath = "C:/Temp"
 pipeline {
     agent any
     stages {
-        stage('Load parameter') {
+        stage('LOAD PARAMETER') {
             steps {
                 build_parameters__software_setup()
             }
@@ -17,6 +17,11 @@ pipeline {
         //         }
         //     }
         // }
+        stage('[Coding App] INSTALL') {
+            steps {
+                window_software_installation()
+            }
+        }
         
     }
 }
