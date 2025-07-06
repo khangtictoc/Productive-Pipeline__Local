@@ -22,6 +22,12 @@ pipeline {
                 window_software_installation()
             }
         }
-        
+        stage('POST INSTALL') {
+            steps {
+                script {
+                    cleanWs()
+                }
+            }
+        }
     }
 }
